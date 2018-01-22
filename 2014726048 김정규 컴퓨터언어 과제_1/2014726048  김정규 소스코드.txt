@@ -1,0 +1,31 @@
+Python 2.7.7 |Anaconda 2.0.1 (64-bit)| (default, Jun 11 2014, 10:40:02) [MSC v.1500 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+==== No Subprocess ====
+>>> # 컴퓨터소프트웨어학과 1학년 2014726048 김정규
+>>> ##시작
+>>> from turtle import *
+>>> reset()
+>>> def Circle(r,x):
+	return (r*r-x*x)**0.5
+
+>>> import numpy as np
+>>> radian=np.pi/180
+>>> def donuts(n,r,R):#n은 반복문 횟수, r은 원의 반지름, r-R은 원 회전 중심점에서의 거리
+	for k in range(n):
+		for x in np.arange(-r,r+2.0,2.0):
+			if(x==-r):
+				up()
+				goto(x+R*sin(5*k*radian),Circle(r,x)+R*cos(5*k*radian))
+				down()
+			else:
+				goto(x+R*sin(5*k*radian),Circle(r,x)+R*cos(5*k*radian))
+		for x in np.arange(r,-r-2.0,-2.0):
+			goto(x+R*sin(5*k*radian),-Circle(r,x)+R*cos(5*k*radian))
+
+			
+>>> tracer(False)
+>>> donuts(90,170,140)
+>>> reset()
+>>> donuts(90,170,90)
+>>> reset()
+>>> donuts(90,400,200)
